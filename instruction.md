@@ -1,6 +1,6 @@
 # ome.tv-ip-puller
 
-# instruction how to use
+instruction how to use
 
 # open ome.tv
 # open console in your browser
