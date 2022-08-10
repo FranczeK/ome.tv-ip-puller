@@ -7,5 +7,6 @@
 ###### enjoy
 
 
+#state 10/08/2022 | not working and discontinued
 
 ## warning: it can spam really hard, if everyone on ome skips you 
